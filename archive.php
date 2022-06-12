@@ -1,28 +1,11 @@
-<?php get_header(); ?>
+<?php 
+get_header(); 
+pageBanner(array(
+    'title' => get_the_archive_title(), //when the title of a function starts with "the" it will automatically echo out the function value which is not applicable in our current case, we need to use get_the_archive_title() instead to get the value directly
+    'subtitle' => get_the_archive_description()
+));
+?>
 
-<div class="page-banner">
-    <div class="page-banner__bg-image"
-        style="background-image: url(<?php echo get_theme_file_uri('images/ocean.jpg') ?>)">
-    </div>
-    <div class="page-banner__content container container--narrow">
-
-        <!-- Option 1: set condition to show if author or category routes are currently being shown -->
-        <!-- <h1 class="page-banner__title"><?php if (is_category()) {
-        echo 'Posts under '; single_cat_title();
-    } if (is_author()) {
-        echo 'Posts by '; the_author();
-    }?></h1> -->
-
-        <!-- Option 2 is to use the recently released function of WP called the_archive_title() -->
-        <h1 class="page-banner__title"> <?php the_archive_title() ?></h1>
-
-
-        <div class="page-banner__intro">
-            <!-- this function will use biographical info of author OR the category description provided -->
-            <p> <?php the_archive_description(); ?> </p>
-        </div>
-    </div>
-</div>
 
 <div class="container container--narrow page-section">
     <?php while(have_posts()){
