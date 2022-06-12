@@ -32,12 +32,16 @@
                         </li>
                         <li
                             <?php if(get_post_type() == 'program' || is_page('programs')) echo 'class="current-menu-item"'?>>
-                            <a href="<?php echo site_url('/programs'); ?>">Programs</a></li>
+                            <a href="<?php echo site_url('/programs'); ?>">Programs</a>
+                        </li>
                         <li
                             <?php if(get_post_type() == 'event' || is_page('past-events')) echo 'class="current-menu-item"'?>>
                             <a href="<?php echo get_post_type_archive_link('event') ?>">Events</a>
                         </li>
-                        <li><a href="<?php echo site_url('/campuses'); ?>">Campuses</a></li>
+                        <!-- Campuses href could also be <?php echo site_url('/campuses'); ?> -->
+                        <li
+                            <?php if(get_post_type() == 'campus' || is_page('campuses')) echo 'class="current-menu-item"' ?>>
+                            <a href="<?php echo get_post_type_archive_link('campus'); ?>">Campuses</a></li>
                         <!-- used this condition so the class will be applied even for individual post, category and author pages -->
                         <li <?php if(get_post_type() == 'post') echo 'class="current-menu-item"'?>><a
                                 href="<?php echo site_url('/blog'); ?>">Blog</a></li>
