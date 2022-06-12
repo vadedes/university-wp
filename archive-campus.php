@@ -7,14 +7,26 @@ pageBanner(array(
 ?>
 
 <div class="container container--narrow page-section">
-    <ul class="link-list min-list">
+    <div class='acf-map'>
         <?php while(have_posts()){
-        the_post(); ?>
-        <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+        the_post(); 
+        $mapLocation = get_field('map_location')
+        ?>
+        <!-- <li><a href="<?php the_permalink(); ?>"><?php 
+        the_title(); 
+        $mapLocation = get_field('map_location');
+        //check data contained in the variable print_r(variable-name) 
+        // print_r($mapLocation);
+        $mapLocation['lat']
+        ?></a></li> -->
+
+        <div class='marker' data-lat='<?php echo $mapLocation['lat'] ?>' data-lng='<?php echo $mapLocation['lng'] ?>'>
+        </div>
+
         <?php  } 
         echo paginate_links();
         ?>
-    </ul>
+    </div>
 </div>
 
 <?php get_footer(); ?>
