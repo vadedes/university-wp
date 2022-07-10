@@ -1,0 +1,28 @@
+{
+    //prettier
+    "prettier.printWidth": 150,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[javascript, html, ]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "eslint.format.enable": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "eslint.lintTask.enable": true,
+    "eslint.run": "onSave",
+    "eslint.validate": ["javascript", "vue"],
+    "prettier.jsxSingleQuote": true,
+    "prettier.singleQuote": true,
+    "prettier.tabWidth": 4,
+    "files.associations": {
+        "*.css": "css"
+    },
+    "editor.guides.bracketPairs": true,
+    "editor.bracketPairColorization.enabled": true,
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "reactSnippets.settings.importReactOnTop": false,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "eslint.alwaysShowStatus": true
+}

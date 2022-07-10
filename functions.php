@@ -44,6 +44,11 @@ function university_files() {
   wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
   wp_enqueue_style('university_main_styles', get_theme_file_uri('/build/style-index.css'));
   wp_enqueue_style('university_extra_styles', get_theme_file_uri('/build/index.css'));
+
+  //this line is meant for REST API calls to make the base URL flexible based on the server domain
+  wp_localize_script('main-university-js', 'universityData', array(
+    'root_url' => get_site_url()
+  ));
 }
 
 add_action('wp_enqueue_scripts', 'university_files');
@@ -99,6 +104,12 @@ function university_adjust_queries($query){
     $query->set('orderby', 'title');
     $query->set('order', 'ASC');
     $query->set('posts_per_page', -1);
+  }
+
+  //Campuses - this will make all markers no matter how many to show up on campuses archive page
+  if(!is_admin() AND is_post_type_archive('campus') AND $query->is_main_query()){
+    $query->set('posts_per_page', -1);
+
   }
 
 }
